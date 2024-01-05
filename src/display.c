@@ -108,6 +108,8 @@ void flood_fill(int x, int y, uint32_t start_color, uint32_t color) {
     return;
   }
 
+  draw_pixel(x, y, color);
+
   queue_t *q = init_queue(128);
   point_t p = {.x = x, .y = y};
   node_t *n = (node_t *)malloc(sizeof(node_t));
@@ -126,7 +128,6 @@ void flood_fill(int x, int y, uint32_t start_color, uint32_t color) {
     p = n->p;
 
     x = p.x, y = p.y;
-    draw_pixel(x, y, color);
     for (int i = 0; i < range_length; i++) {
       if (get_pixel(x, y + range[i]) == start_color) {
         draw_pixel(x, y + range[i], color);

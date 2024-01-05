@@ -148,5 +148,4 @@ void flood_fill(int x, int y, uint32_t start_color, uint32_t color) {
     free(n);
   }
   free_queue(q);
-  printf("done");
 }
